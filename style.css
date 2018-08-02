@@ -61,3 +61,15 @@ margin-bottom: 2%;
     clear: both;
 }
 
+
+.right::before { 
+    content: "CORRECT: ";
+    font-weight: bold;
+}
+
+.wrong::before {
+    content: "WRONG: ";
+    font-weight: bold;
+}
+
+

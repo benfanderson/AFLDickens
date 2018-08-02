@@ -51,7 +51,7 @@ function init() {
             buttonLit = document.createElement("button");
             questionDiv.appendChild(buttonLit);
             buttonLit.setAttribute( "class", "buttonLit button");
-            buttonLit.innerHTML = "Dickens charcter";
+            buttonLit.innerHTML = "Dickens <br> character";
 
             bio = document.createElement("div");
             questionDiv.appendChild(bio);
@@ -68,9 +68,6 @@ function init() {
             content = contentArray[i];
             questionPar = questions[i].firstElementChild.firstElementChild;
             questionPar.innerHTML = content.name; 
-            // bio = questions[i].lastElementChild;
-            // bio.innerHTML = content.bio;
-            // AFLTrueFalse.push(content.AFL);
         }
 
         AFLButtons = document.getElementsByClassName("buttonAFL");
@@ -93,8 +90,6 @@ function init() {
     function AFLAnswer(e) {
         
         parent = e.target.parentNode;
-        // bio = parent.lastElementChild;
-        // bio.innerHTML = content.bio;
         e.target.disabled = "true";
         parent.children[2].disabled = "true";
         name = parent.firstElementChild.firstElementChild.innerHTML;
@@ -114,16 +109,16 @@ function init() {
 
         if (AFL) {
             e.target.style.backgroundColor = "green";
+            parent.children[3].setAttribute("class", "right");
         } else {
             e.target.style.backgroundColor = "red";
             parent.children[2].style.backgroundColor = "green";
+            parent.children[3].setAttribute("class", "wrong");
         }
     }
 
     function litAnswer(e) {
         parent = e.target.parentNode;
-        // bio = parent.lastElementChild;
-        // bio.innerHTML = content.bio;
         e.target.disabled = "true";
         parent.children[1].disabled = "true";
         name = parent.firstElementChild.firstElementChild.innerHTML;
@@ -141,9 +136,11 @@ function init() {
   
         if (AFL === false) {
               e.target.style.backgroundColor = "green";
+              parent.children[3].setAttribute("class", "right");
           } else {
               e.target.style.backgroundColor = "red";
               parent.children[1].style.backgroundColor = "green";
+              parent.children[3].setAttribute("class", "wrong");
         }
     }   
 }
