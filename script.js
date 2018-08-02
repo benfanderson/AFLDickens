@@ -28,17 +28,48 @@ function init() {
         }
     ]
 
+    function createQuestionsModules() {
+        questionsContainer = document.getElementById("questionsContainer");
+        for (let i = 0; i < contentArray.length; i++) {
+            questionDiv = document.createElement("div");
+            questionsContainer.appendChild(questionDiv);
+            questionDiv.setAttribute("class", "questionDiv")
+
+            question = document.createElement("div");
+            questionDiv.appendChild(question);
+            question.setAttribute("class", "question");
+
+            questionPar = document.createElement("p");
+            question.appendChild(questionPar);
+            questionPar.setAttribute("class", "questionPar");
+            
+            buttonAFL = document.createElement("button");
+            questionDiv.appendChild(buttonAFL);
+            buttonAFL.setAttribute( "class", "buttonAFL button");
+            buttonAFL.innerHTML ="AFL Player";
+
+            buttonLit = document.createElement("button");
+            questionDiv.appendChild(buttonLit);
+            buttonLit.setAttribute( "class", "buttonLit button");
+            buttonLit.innerHTML = "Dickens charcter";
+
+            bio = document.createElement("div");
+            questionDiv.appendChild(bio);
+            bio.setAttribute("class", "bio");
+        }
+        createQuestions();
+
+    }
     
 
     function createQuestions(){
         questions = document.getElementsByClassName("questionDiv");
-        // AFLTrueFalse = [];
         for (let i = 0; i < questions.length; i++) {
             content = contentArray[i];
             questionPar = questions[i].firstElementChild.firstElementChild;
             questionPar.innerHTML = content.name; 
-            bio = questions[i].lastElementChild;
-            bio.innerHTML = content.bio;
+            // bio = questions[i].lastElementChild;
+            // bio.innerHTML = content.bio;
             // AFLTrueFalse.push(content.AFL);
         }
 
@@ -54,7 +85,7 @@ function init() {
 
     }
 
-    createQuestions();
+    createQuestionsModules()
 
     
    
@@ -62,11 +93,12 @@ function init() {
     function AFLAnswer(e) {
         
         parent = e.target.parentNode;
-        bio = parent.lastElementChild;
-        bio.style.display = "block";
+        // bio = parent.lastElementChild;
+        // bio.innerHTML = content.bio;
         e.target.disabled = "true";
         parent.children[2].disabled = "true";
         name = parent.firstElementChild.firstElementChild.innerHTML;
+
 
 
         for (let i = 0; i< contentArray.length; i++) {
@@ -75,6 +107,7 @@ function init() {
             pic = contentArray[i].pic;
             parent.children[0].style.backgroundImage = "url('images/"+pic+".jpg')"
             parent.children[0].children[0].style.display = "none";
+            parent.children[3].innerHTML = contentArray[i].bio;
             
           }  
         }
@@ -89,8 +122,8 @@ function init() {
 
     function litAnswer(e) {
         parent = e.target.parentNode;
-        bio = parent.lastElementChild;
-        bio.style.display = "block";
+        // bio = parent.lastElementChild;
+        // bio.innerHTML = content.bio;
         e.target.disabled = "true";
         parent.children[1].disabled = "true";
         name = parent.firstElementChild.firstElementChild.innerHTML;
@@ -101,6 +134,7 @@ function init() {
               pic = contentArray[i].pic;
               parent.children[0].style.backgroundImage = "url('images/"+pic+".jpg')"
               parent.children[0].children[0].style.display = "none";
+              parent.children[3].innerHTML = contentArray[i].bio;
 
             }  
         }
