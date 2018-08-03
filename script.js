@@ -25,9 +25,28 @@ function init() {
         AFL: false,
         bio: "Uriah Heep was a sycophantic lawyer in David Copperfield.",
         pic: "heep"
-        }
-    ]
+        },
 
+        { name: "Dyson Heppell",
+        AFL: true,
+        bio: "Dyson Heppell is the captain of the Essendon Football Club.",
+        pic: "heppell"
+        }
+    ];
+
+    // Randomly chooses which objects from the above array to be used in quiz
+    let numbers = [];
+    for (let i = 0; i <= (contentArray.length)-1; i++) {
+    numbers.push(i);
+}
+    function shuffle(o) {
+        for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+        return o;
+    };
+    random = shuffle(numbers);
+
+
+    // Populates questionsContainer with question modules
     function createQuestionsModules() {
         questionsContainer = document.getElementById("questionsContainer");
         for (let i = 0; i < contentArray.length; i++) {
@@ -61,11 +80,12 @@ function init() {
 
     }
     
-
+    // Populates question modules with content
     function createQuestions(){
         questions = document.getElementsByClassName("questionDiv");
+
         for (let i = 0; i < questions.length; i++) {
-            content = contentArray[i];
+            content = contentArray[random[i]];
             questionPar = questions[i].firstElementChild.firstElementChild;
             questionPar.innerHTML = content.name; 
         }
