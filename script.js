@@ -85,27 +85,26 @@ function init() {
     createQuestionsModules()
 
     
-   
-
-    function AFLAnswer(e) {
-        
-        parent = e.target.parentNode;
-        e.target.disabled = "true";
-        parent.children[2].disabled = "true";
+   function button(e) {
         name = parent.firstElementChild.firstElementChild.innerHTML;
 
-
-
         for (let i = 0; i< contentArray.length; i++) {
-          if (Object.values(contentArray[i]).indexOf(name) > -1 ) {
-            AFL = contentArray[i].AFL;
-            pic = contentArray[i].pic;
-            parent.children[0].style.backgroundImage = "url('images/"+pic+".jpg')"
-            parent.children[0].children[0].style.display = "none";
-            parent.children[3].innerHTML = contentArray[i].bio;
-            
-          }  
-        }
+            if (Object.values(contentArray[i]).indexOf(name) > -1 ) {
+                AFL = contentArray[i].AFL;
+                pic = contentArray[i].pic;
+                parent.children[0].style.backgroundImage = "url('images/"+pic+".jpg')"
+                parent.children[0].children[0].style.display = "none";
+                parent.children[3].innerHTML = contentArray[i].bio;
+            }  
+        }    
+    }
+
+    function AFLAnswer(e) { 
+        
+        parent = e.target.parentNode;
+        button(e);
+        e.target.disabled = "true";
+        parent.children[2].disabled = "true";
 
         if (AFL) {
             e.target.style.backgroundColor = "green";
@@ -119,20 +118,9 @@ function init() {
 
     function litAnswer(e) {
         parent = e.target.parentNode;
+        button(e);
         e.target.disabled = "true";
         parent.children[1].disabled = "true";
-        name = parent.firstElementChild.firstElementChild.innerHTML;
-
-        for (let i = 0; i< contentArray.length; i++) {
-            if (Object.values(contentArray[i]).indexOf(name) > -1 ) {
-              AFL = contentArray[i].AFL;
-              pic = contentArray[i].pic;
-              parent.children[0].style.backgroundImage = "url('images/"+pic+".jpg')"
-              parent.children[0].children[0].style.display = "none";
-              parent.children[3].innerHTML = contentArray[i].bio;
-
-            }  
-        }
   
         if (AFL === false) {
               e.target.style.backgroundColor = "green";
