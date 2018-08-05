@@ -11,7 +11,7 @@ function init() {
 
         { name: "Jacob Marley",
         AFL: false,
-        bio: "Jacob Marley was Ebeneezer Scrooge's ghostly former business parter in A Christmas Carol.",
+        bio: "Jacob Marley was Scrooge's former business parter in A Christmas Carol.",
         pic: "marley"
         },
 
@@ -65,7 +65,7 @@ function init() {
             buttonAFL = document.createElement("button");
             questionDiv.appendChild(buttonAFL);
             buttonAFL.setAttribute( "class", "buttonAFL button");
-            buttonAFL.innerHTML ="AFL Player";
+            buttonAFL.innerHTML ="AFL <br> Player";
 
             buttonLit = document.createElement("button");
             questionDiv.appendChild(buttonLit);
