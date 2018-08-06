@@ -21,7 +21,7 @@ h1 {
 .question {
     width: 100%;
     height: 50%;
-    background-color: #c3c8cd;
+    background-color: #b7a6ad;
     margin-bottom: 2%;
     position: relative;
     background-size: 100%;
@@ -38,12 +38,11 @@ h1 {
 
 .button {
 width: 48%;
-/* height: 18%; */
 font-size: 1.5em;
 display: block;
 margin-bottom: 2%;
 padding: 0.5%;
-background-color:rgb(211, 208, 208);
+background-color: #d1c6bf;
 }
 
 .buttonAFL {
@@ -66,9 +65,51 @@ background-color:rgb(211, 208, 208);
     font-weight: bold;
 }
 
+.right, .wrong {
+ font-size: 1em;
+}
+
 .wrong::before {
     content: "WRONG: ";
     font-weight: bold;
+}
+
+
+/*View for tablets*/
+@media (min-width:479px) {
+
+    body {
+        background-color: #d2d6d9;
+    }
+
+    #container {
+         background-color: white;
+         width: 76%;
+         margin: auto;
+         padding: 2%;
+    }
+
+    h1 {
+       font-size: 3.5em;
+    }
+
+    .questionPar{
+        font-size: 5em;
+    }
+
+    .button {
+        font-size: 2em;
+    }
+
+    .right, .wrong {
+        font-size: 2em;
+    }
+
+}
+
+/*View for desktop*/
+@media (min-width:1000px) {
+
 }
 
 
