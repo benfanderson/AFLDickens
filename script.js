@@ -31,7 +31,39 @@ function init() {
         AFL: true,
         bio: "Dyson Heppell is the captain of the Essendon Football Club.",
         pic: "heppell"
-        }
+        },
+
+        { name: "Sydney Carton",
+        AFL: false,
+        bio: "Sydney Carton was a shrewd, self-sacrificing lawyer in A Tale of Two Cities.",
+        pic: "carton"
+        },
+
+        { name: "Charlie Spargo",
+        AFL: true,
+        bio: "Charlie Spargo made his AFL debut this year for the Melbourne Football Club.",
+        pic: "spargo"
+        },
+
+        { name: "Bentley Drummle",
+        AFL: false,
+        bio: "Bentley Drummle was Pip's lifelong nemesis in Great Expectations.",
+        pic: "drummle"
+        },
+
+        { name: "Tom Hawkins",
+        AFL: true,
+        bio: "Tom Hawkins has won two premierships with the Geelong Football Club.",
+        pic: "hawkins"
+        },
+
+        { name: "Jarvis Lorry",
+        AFL: false,
+        bio: "Larvis Lorry was a confirmed bachelor in A Tale of Two Cities.",
+        pic: "lorry"
+        },
+
+
     ];
 
     // Randomly chooses which objects from the above array to be used in quiz
