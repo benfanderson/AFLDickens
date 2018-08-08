@@ -109,6 +109,13 @@ background-color: #d1c6bf;
 
 /*View for desktop*/
 @media (min-width:1000px) {
+    #container {
+        width: 40%;
+   }
+
+   .right, .wrong {
+    font-size: 1.5em;
+   }
 
 }
 
