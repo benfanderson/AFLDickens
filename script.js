@@ -62,9 +62,9 @@ function init() {
         bio: "Larvis Lorry was a confirmed bachelor in A Tale of Two Cities.",
         pic: "lorry"
         },
-
-
     ];
+
+    let correctAnswers = 0;
 
     // Randomly chooses which objects from the above array to be used in quiz
     let numbers = [];
@@ -81,7 +81,7 @@ function init() {
     // Populates questionsContainer with question modules
     function createQuestionsModules() {
         questionsContainer = document.getElementById("questionsContainer");
-        for (let i = 0; i < contentArray.length; i++) {
+        for (let i = 0; i < 5; i++) {
             questionDiv = document.createElement("div");
             questionsContainer.appendChild(questionDiv);
             questionDiv.setAttribute("class", "questionDiv")
@@ -161,6 +161,7 @@ function init() {
         if (AFL) {
             e.target.style.backgroundColor = "green";
             parent.children[3].setAttribute("class", "right");
+            correctAnswers = correctAnswers + 1;
         } else {
             e.target.style.backgroundColor = "red";
             parent.children[2].style.backgroundColor = "green";
@@ -177,10 +178,25 @@ function init() {
         if (AFL === false) {
               e.target.style.backgroundColor = "green";
               parent.children[3].setAttribute("class", "right");
+              correctAnswers = correctAnswers + 1;
           } else {
               e.target.style.backgroundColor = "red";
               parent.children[1].style.backgroundColor = "green";
               parent.children[3].setAttribute("class", "wrong");
         }
     }   
+
+    resultButton = document.getElementById("resultButton");
+    resultButton.onclick = getResults;
+
+    function getResults() {
+        result = document.getElementById("result");
+        numberOfQuestions = document.getElementsByClassName("questionDiv").length;
+
+        if (correctAnswers > (numberOfQuestions*0.5)) {
+            result.innerHTML = "Well done. You got " + correctAnswers+"/"+numberOfQuestions
+        } else {
+            result.innerHTML = "Try again. You got " + correctAnswers+"/"+numberOfQuestions;
+        }
+    }
 }

@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 #container {
@@ -21,7 +22,7 @@ h1 {
 .question {
     width: 100%;
     height: 50%;
-    background-color: #b7a6ad;
+    background-color: #0375b4;
     margin-bottom: 2%;
     position: relative;
     background-size: 100%;
@@ -29,6 +30,8 @@ h1 {
 
 .questionPar{
     font-size: 3em;
+    font-weight: bold;
+    color: white;
     width: 50%;
     text-align: center;
     position: absolute;
@@ -39,10 +42,11 @@ h1 {
 .button {
 width: 48%;
 font-size: 1.5em;
+color: white;
 display: block;
 margin-bottom: 2%;
 padding: 0.5%;
-background-color: #d1c6bf;
+background-color: #262228;
 }
 
 .buttonAFL {
@@ -79,7 +83,7 @@ background-color: #d1c6bf;
 @media (min-width:479px) {
 
     body {
-        background-color: #d2d6d9;
+        background-color: #ffce00;
     }
 
     #container {
