@@ -65,6 +65,7 @@ function init() {
     ];
 
     let correctAnswers = 0;
+    let answeredQuestions = 0;
 
     // Randomly chooses which objects from the above array to be used in quiz
     let numbers = [];
@@ -138,7 +139,8 @@ function init() {
 
     
    function button(e) {
-        name = parent.firstElementChild.firstElementChild.innerHTML;
+        let name = parent.firstElementChild.firstElementChild.innerHTML;
+        answeredQuestions = answeredQuestions +1;
 
         for (let i = 0; i< contentArray.length; i++) {
             if (Object.values(contentArray[i]).indexOf(name) > -1 ) {
@@ -149,6 +151,11 @@ function init() {
                 parent.children[3].innerHTML = contentArray[i].bio;
             }  
         }    
+
+        
+        
+
+        
     }
 
     function AFLAnswer(e) { 
@@ -157,6 +164,7 @@ function init() {
         button(e);
         e.target.disabled = "true";
         parent.children[2].disabled = "true";
+        
 
         if (AFL) {
             e.target.style.backgroundColor = "green";
@@ -167,6 +175,10 @@ function init() {
             parent.children[2].style.backgroundColor = "green";
             parent.children[3].setAttribute("class", "wrong");
         }
+
+        if (answeredQuestions >= document.getElementsByClassName("questionDiv").length) {
+            getResults();
+        } 
     }
 
     function litAnswer(e) {
@@ -174,6 +186,7 @@ function init() {
         button(e);
         e.target.disabled = "true";
         parent.children[1].disabled = "true";
+        
   
         if (AFL === false) {
               e.target.style.backgroundColor = "green";
@@ -184,19 +197,37 @@ function init() {
               parent.children[1].style.backgroundColor = "green";
               parent.children[3].setAttribute("class", "wrong");
         }
-    }   
 
-    resultButton = document.getElementById("resultButton");
-    resultButton.onclick = getResults;
+        if (answeredQuestions >= document.getElementsByClassName("questionDiv").length) {
+            getResults();
+        } 
+    }   
 
     function getResults() {
         result = document.getElementById("result");
         numberOfQuestions = document.getElementsByClassName("questionDiv").length;
 
-        if (correctAnswers > (numberOfQuestions*0.5)) {
-            result.innerHTML = "Well done. You got " + correctAnswers+"/"+numberOfQuestions
+        if (correctAnswers > (numberOfQuestions*0.6)) {
+            result.innerHTML =  "You got " + correctAnswers+"/"+numberOfQuestions+". Well done, you either know a lot about football or literature."
+        } else if (correctAnswers > (numberOfQuestions*0.4)) {
+            result.innerHTML =  "You got " + correctAnswers+"/"+numberOfQuestions+". Not bad but you could do better."
         } else {
-            result.innerHTML = "Try again. You got " + correctAnswers+"/"+numberOfQuestions;
+            result.innerHTML =  "You got " + correctAnswers+"/"+numberOfQuestions+". You need to read more books and watch more sport"
         }
+
     }
+
+    // function newButton() {
+    //     container = document.getElementById("container");
+    //     newButton = document.createElement("button");
+    //     container.appendChild(newButton);
+    //     newButton.innerHTML = "Play again";
+    //     newButton.setAttribute( "class", "newButton");
+    // }
+
+    // newButton.onclick = newQuiz;
+
+    // function newQuiz() {
+    //     location.reload();
+    // }
 }
