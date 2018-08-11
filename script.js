@@ -205,6 +205,7 @@ function init() {
 
     function getResults() {
         result = document.getElementById("result");
+        result.style.display = "block";
         numberOfQuestions = document.getElementsByClassName("questionDiv").length;
 
         if (correctAnswers > (numberOfQuestions*0.6)) {

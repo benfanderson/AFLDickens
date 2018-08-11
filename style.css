@@ -78,6 +78,12 @@ background-color: #262228;
     font-weight: bold;
 }
 
+#result {
+    display: none;
+    padding-top: 4%;
+    border-top: black solid 1px;
+}
+
 
 /*View for tablets*/
 @media (min-width:479px) {
@@ -109,6 +115,10 @@ background-color: #262228;
         font-size: 2em;
     }
 
+    #result {
+        font-size: 2em;
+    }
+
 }
 
 /*View for desktop*/
@@ -118,8 +128,12 @@ background-color: #262228;
    }
 
    .right, .wrong {
-    font-size: 1.5em;
+        font-size: 1.5em;
    }
+
+   #result {
+        font-size: 1.5em;
+    }
 
 }
 
