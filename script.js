@@ -216,19 +216,14 @@ function init() {
             result.innerHTML =  "You got " + correctAnswers+"/"+numberOfQuestions+". You need to read more books and watch more sport"
         }
 
+        newButton = document.getElementById("newButton");
+        newButton.style.display = "block";
+        newButton.onclick = newQuiz;
+
     }
 
-    // function newButton() {
-    //     container = document.getElementById("container");
-    //     newButton = document.createElement("button");
-    //     container.appendChild(newButton);
-    //     newButton.innerHTML = "Play again";
-    //     newButton.setAttribute( "class", "newButton");
-    // }
-
-    // newButton.onclick = newQuiz;
-
-    // function newQuiz() {
-    //     location.reload();
-    // }
+    function newQuiz() {
+        location.reload();
+        window.scrollTo(0, 0);
+    }
 }
