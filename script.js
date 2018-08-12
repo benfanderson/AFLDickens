@@ -66,19 +66,19 @@ function init() {
 
     let correctAnswers = 0;
     let answeredQuestions = 0;
-
-    // Randomly chooses which objects from the above array to be used in quiz
     let numbers = [];
-    for (let i = 0; i <= (contentArray.length)-1; i++) {
-    numbers.push(i);
-}
+
+    createQuestionsModules()
+    
+    //Randomly suffles objects in contentArray to be used in question modules
     function shuffle(o) {
+        for (let i = 0; i <= (contentArray.length)-1; i++) {
+            numbers.push(i);
+        }
         for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
         return o;
     };
-    random = shuffle(numbers);
-
-
+    
     // Populates questionsContainer with question modules
     function createQuestionsModules() {
         questionsContainer = document.getElementById("questionsContainer");
@@ -115,6 +115,7 @@ function init() {
     
     // Populates question modules with content
     function createQuestions(){
+        let random = shuffle(numbers);
         questions = document.getElementsByClassName("questionDiv");
 
         for (let i = 0; i < questions.length; i++) {
@@ -135,9 +136,7 @@ function init() {
 
     }
 
-    createQuestionsModules()
-
-    
+    //Reveals answer to question when button is clicked
    function button(e) {
         let name = parent.firstElementChild.firstElementChild.innerHTML;
         answeredQuestions = answeredQuestions +1;
@@ -158,6 +157,7 @@ function init() {
         
     }
 
+    //Reveals and records whether answer was correct if AFL button is clicked
     function AFLAnswer(e) { 
         
         parent = e.target.parentNode;
@@ -181,6 +181,7 @@ function init() {
         } 
     }
 
+    //Reveals and records whether answer was correct if Dickens button is clicked
     function litAnswer(e) {
         parent = e.target.parentNode;
         button(e);
@@ -203,10 +204,11 @@ function init() {
         } 
     }   
 
+    //Reveals final overall result when final question is answered
     function getResults() {
         result = document.getElementById("result");
         result.style.display = "block";
-        numberOfQuestions = document.getElementsByClassName("questionDiv").length;
+        let numberOfQuestions = document.getElementsByClassName("questionDiv").length;
 
         if (correctAnswers > (numberOfQuestions*0.6)) {
             result.innerHTML =  "You got " + correctAnswers+"/"+numberOfQuestions+". Well done, you either know a lot about football or literature."
@@ -222,6 +224,7 @@ function init() {
 
     }
 
+    //Reloads quiz with new questions
     function newQuiz() {
         location.reload();
         window.scrollTo(0, 0);
